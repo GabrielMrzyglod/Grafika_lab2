@@ -14,11 +14,11 @@ pygame.display.set_caption("Przekształcenie wielokąta")
 YELLOW = (255, 255, 0)
 BLACK = (0, 0, 0)
 
-# Funkcja rysująca dziewięciokąt w środku ekranu
-def draw_nonagon():
+# Funkcja rysująca trzynastokąt w środku ekranu
+def draw_tridecagon():
     center = (window_width // 2, window_height // 2)
     radius = 150
-    num_sides = 9
+    num_sides = 13
     angle_increment = (2 * math.pi) / num_sides
 
     points = []
@@ -30,7 +30,7 @@ def draw_nonagon():
     return points
 
 # Funkcja przekształcająca wielokąt w zależności od wybranej opcji
-def transform_nonagon(points, option):
+def transform_tridecagon(points, option):
     if option == 2:
         # Obrót o 45 stopni
         points = rotate_polygon(points, 45)
@@ -115,7 +115,7 @@ def align_right(points):
 # Główna pętla programu
 running = True
 option = 1
-points = draw_nonagon()
+points = draw_tridecagon()
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -141,7 +141,7 @@ while running:
                 option = 9
 
     window.fill(YELLOW)
-    transformed_points = transform_nonagon(points, option)
+    transformed_points = transform_tridecagon(points, option)
     pygame.draw.polygon(window, BLACK, transformed_points)
     pygame.display.update()
 
